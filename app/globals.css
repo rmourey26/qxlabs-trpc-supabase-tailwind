@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* QxLabs specific colors */
+    --quantum: 210 100% 59%; /* Bright blue */
+    --quantum-foreground: 0 0% 98%;
+    --quantum-muted: 210 80% 45%;
+    --quantum-highlight: 210 100% 75%;
+    --quantum-border: 210 100% 59% / 0.5; /* Added for border with opacity */
+
+    --matrix: 210 100% 59%;
+    --matrix-foreground: 0 0% 98%;
+
+    --radius: 0.5rem;
+    --radius-hex: 0;
+
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --font-quantum: "Space Grotesk", sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .hex-container {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .hex-button {
+    @apply relative overflow-hidden bg-background border text-quantum hover:bg-quantum/10 transition-all duration-300;
+    border-color: hsl(var(--quantum));
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  .quantum-border {
+    @apply relative border rounded-md;
+    border-color: hsl(var(--quantum-border));
+  }
+
+  .quantum-border::before {
+    content: "";
+    @apply absolute inset-0 rounded-md opacity-0 transition-opacity duration-500;
+    box-shadow: 0 0 15px 2px hsl(var(--quantum));
+  }
+
+  .quantum-border:hover::before {
+    @apply opacity-100;
+  }
+
+  .quantum-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(to right, hsl(var(--quantum)), hsl(var(--quantum-highlight)));
+  }
+
+  .matrix-bg {
+    @apply relative overflow-hidden;
+  }
+
+  .matrix-bg::before {
+    content: "";
+    @apply absolute inset-0 opacity-10;
+    background-color: hsla(var(--matrix), 0.05);
+    background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      hsl(var(--matrix)) 25%,
+      hsl(var(--matrix)) 26%,
+      transparent 27%,
+      transparent 74%,
+      hsl(var(--matrix)) 75%,
+      hsl(var(--matrix)) 76%,
+      transparent 77%,
+      transparent
+    );
+    background-size: 50px 50px;
+    animation: matrix-flow 20s linear infinite;
+  }
+
+  .data-stream {
+    @apply relative overflow-hidden;
+  }
+
+  .data-stream::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-px opacity-70;
+    background: linear-gradient(to right, transparent, hsl(var(--quantum)), transparent);
+    animation: data-stream 3s ease-in-out infinite;
+  }
+}
+
+@keyframes matrix-flow {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes hex-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes quantum-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 15px 2px hsl(var(--quantum));
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 25px 5px hsl(var(--quantum));
+  }
+}
+
+/* Add these animation classes to your existing globals.css */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 12s linear infinite;
+}
+
+/* Add a new ionic glow animation */
+@keyframes ionic-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 16px rgba(77, 171, 247, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 24px rgba(77, 171, 247, 0.8));
+  }
+}
+
+.animate-ionic-glow {
+  animation: ionic-glow 3s ease-in-out infinite;
+}
