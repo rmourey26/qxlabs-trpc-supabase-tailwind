@@ -1,4 +1,4 @@
-# TACON-Sui Template
+# QxLabs Blockchain App Template
 
 A modern, production-ready Next.js template featuring tRPC, Supabase, and a custom quantum-inspired design system. Perfect for building high-performance blockchain applications or any modern web application requiring authentication, database integration, and a stunning UI.
 
