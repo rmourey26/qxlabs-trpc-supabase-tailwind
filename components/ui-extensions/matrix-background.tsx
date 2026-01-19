@@ -82,5 +82,5 @@ export function MatrixBackground({
     }
   }, [density, speed, color])
 
-  return <canvas ref={canvasRef} className={cn("fixed inset-0 -z-10", className)} {...props} />
+  return <canvas ref={canvasRef} className={cn("fixed inset-0 -z-10 pointer-events-none", className)} {...props} />
 }

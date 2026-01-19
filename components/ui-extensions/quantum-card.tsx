@@ -39,18 +39,25 @@ export function QuantumCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}
       className={cn(
-        "relative rounded-lg overflow-hidden",
-        glowEffect && "shadow-quantum-glow",
+        "relative rounded-lg overflow-hidden group",
+        glowEffect && "hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-500",
         dataStream && "data-stream",
         className,
       )}
       {...props}
     >
-      <Card className="bg-background/80 backdrop-blur-sm border-quantum/30">
+      <Card
+        className={cn(
+          "bg-background/80 backdrop-blur-sm border-quantum/30 relative",
+          "before:absolute before:inset-0 before:rounded-lg before:border-2 before:border-transparent",
+          glowEffect && "before:group-hover:border-quantum/50 before:transition-all before:duration-500",
+        )}
+      >
         {header && (
           <CardHeader className={cn("border-b border-[hsl(var(--quantum-border))]", headerClassName)}>
             {header}

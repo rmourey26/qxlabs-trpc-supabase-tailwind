@@ -54,7 +54,11 @@ export default function HomePage() {
             <Link href="/auth/login" className="text-foreground hover:text-quantum transition-colors">
               Demo
             </Link>
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <QuantumButton>View on GitHub</QuantumButton>
             </Link>
           </div>
@@ -443,9 +447,11 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm">
-                    <code className="text-quantum">git clone https://github.com/yourusername/qxlabs-template.git</code>
+                    <code className="text-quantum">
+                      git clone https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind.git
+                    </code>
                     <br />
-                    <code className="text-quantum">cd qxlabs-template</code>
+                    <code className="text-quantum">cd qxlabs-trpc-supabase-tailwind</code>
                     <br />
                     <code className="text-quantum">npm install</code>
                   </div>
@@ -506,7 +512,11 @@ export default function HomePage() {
                 Check out the README.md file for detailed documentation and advanced configuration options.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <QuantumButton size="lg" glowEffect>
                     <GitBranch className="mr-2 h-5 w-5" />
                     View on GitHub
@@ -565,7 +575,11 @@ export default function HomePage() {
               Start your next project with a production-ready template that includes everything you need to ship fast.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <QuantumButton size="lg" glowEffect>
                   <GitBranch className="mr-2 h-5 w-5" />
                   Get Started Now

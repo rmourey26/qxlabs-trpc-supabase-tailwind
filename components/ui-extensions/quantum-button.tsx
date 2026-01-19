@@ -38,11 +38,11 @@ export function QuantumButton({
   const getVariantClasses = () => {
     switch (variant) {
       case "default":
-        return "bg-[hsl(var(--quantum))] hover:bg-[hsl(var(--quantum-muted))] text-[hsl(var(--quantum-foreground))]"
+        return "bg-[hsl(var(--quantum))] hover:bg-[hsl(var(--quantum-muted))] text-[hsl(var(--quantum-foreground))] shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transition-all duration-300"
       case "outline":
-        return "border border-[hsl(var(--quantum))] text-[hsl(var(--quantum))] hover:bg-[hsla(var(--quantum),0.1)]"
+        return "border-2 border-[hsl(var(--quantum))] text-[hsl(var(--quantum))] hover:bg-[hsla(var(--quantum),0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300"
       case "ghost":
-        return "text-[hsl(var(--quantum))] hover:bg-[hsla(var(--quantum),0.1)]"
+        return "text-[hsl(var(--quantum))] hover:bg-[hsla(var(--quantum),0.1)] transition-all duration-300"
       default:
         return ""
     }
@@ -53,7 +53,7 @@ export function QuantumButton({
       <Button
         variant={variant === "default" ? "default" : variant}
         size={size}
-        className={cn(getVariantClasses(), glowEffect && "shadow-quantum-glow", className)}
+        className={cn(getVariantClasses(), glowEffect && "animate-quantum-pulse shadow-quantum-pulse", className)}
         {...props}
       >
         {children}

@@ -79,8 +79,8 @@ const config = {
         quantum: ["var(--font-quantum)", ...fontFamily.sans],
       },
       boxShadow: {
-        "quantum-glow": "0 0 15px 2px hsl(var(--quantum))",
-        "quantum-pulse": "0 0 25px 5px hsl(var(--quantum))",
+        "quantum-glow": "0 0 25px 4px rgba(59, 130, 246, 0.6), 0 0 50px 8px rgba(59, 130, 246, 0.3)",
+        "quantum-pulse": "0 0 35px 8px rgba(59, 130, 246, 0.8), 0 0 70px 15px rgba(59, 130, 246, 0.4)",
       },
       keyframes: {
         "accordion-down": {
@@ -94,11 +94,11 @@ const config = {
         "quantum-pulse": {
           "0%, 100%": {
             opacity: "1",
-            boxShadow: "0 0 15px 2px hsl(var(--quantum))",
+            boxShadow: "0 0 20px 3px rgba(59, 130, 246, 0.5), 0 0 40px 6px rgba(59, 130, 246, 0.2)",
           },
           "50%": {
-            opacity: "0.7",
-            boxShadow: "0 0 25px 5px hsl(var(--quantum))",
+            opacity: "0.9",
+            boxShadow: "0 0 35px 8px rgba(59, 130, 246, 0.8), 0 0 70px 15px rgba(59, 130, 246, 0.4)",
           },
         },
         "matrix-flow": {
@@ -117,7 +117,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "quantum-pulse": "quantum-pulse 3s ease-in-out infinite",
+        "quantum-pulse": "quantum-pulse 2.5s ease-in-out infinite",
         "matrix-flow": "matrix-flow 20s linear infinite",
         "hex-rotate": "hex-rotate 10s linear infinite",
         "data-stream": "data-stream 8s linear infinite",

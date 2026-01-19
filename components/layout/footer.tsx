@@ -50,7 +50,9 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://github.com/qxlabs-dlt"
+                  href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-quantum transition-colors flex items-center gap-1"
                 >
                   GitHub Repository <ArrowUpRight className="h-3 w-3" />
@@ -137,7 +139,7 @@ export function Footer() {
         {/* Social links */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <motion.a
-            href="https://github.com/qxlabs-dlt"
+            href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -3 }}

@@ -12,7 +12,7 @@ A modern, production-ready Next.js template featuring tRPC, Supabase, and a cust
 - **shadcn/ui integration** for consistent, accessible components
 
 ### 🔧 Tech Stack
-- **Next.js 14+** with App Router
+- **Next.js 15.2.8** with App Router
 - **TypeScript** for type safety
 - **tRPC** for end-to-end type-safe APIs
 - **Supabase** for authentication and database
@@ -45,34 +45,42 @@ This template can be explored **without setting up environment variables**. When
 - Full navigation and UI exploration
 - Informational banners indicating demo mode
 
+### Testing the Application
+
+To test the login functionality in demo mode, use these credentials:
+- **Email:** `demo@example.com`
+- **Password:** `demo123`
+
+This allows you to explore the authenticated areas of the application without setting up a real Supabase instance.
+
 ## Quick Start
 
 ### 1. Clone or Download
 
-\`\`\`bash
+```bash
 # If using the v0 CLI
 npx v0 add [template-id]
 
 # Or download the ZIP and extract
-\`\`\`
+```
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 npm install
 # or
 yarn install
 # or
 pnpm install
-\`\`\`
+```
 
 ### 3. Run in Demo Mode (Optional)
 
 You can immediately run the app to explore the UI:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 Visit `http://localhost:3000` to see the template in action. The app will run in demo mode, allowing you to explore all pages and components.
 
@@ -91,14 +99,14 @@ To enable full functionality with real authentication and database:
 
 Create a `.env.local` file in the root directory:
 
-\`\`\`env
+```env
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-\`\`\`
+```
 
 For production deployment, update `NEXT_PUBLIC_SITE_URL` to your actual domain.
 
@@ -111,7 +119,7 @@ Run the SQL scripts in the `scripts/sql` directory in your Supabase SQL editor:
 
 Or use the Supabase CLI:
 
-\`\`\`bash
+```bash
 # Install Supabase CLI
 npm install -g supabase
 
@@ -120,19 +128,19 @@ supabase link --project-ref your-project-ref
 
 # Push migrations
 supabase db push
-\`\`\`
+```
 
 #### D. Run the App
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 The app will now use real authentication and database functionality.
 
 ## Project Structure
 
-\`\`\`
+```
 ├── app/                      # Next.js app directory
 │   ├── (auth)/              # Authentication pages
 │   │   ├── login/
@@ -159,7 +167,7 @@ The app will now use real authentication and database functionality.
 ├── providers/               # React providers
 ├── types/                   # TypeScript types
 └── scripts/                 # Database scripts
-\`\`\`
+```
 
 ## Key Components
 
@@ -184,7 +192,7 @@ Located in `components/ui-extensions/`:
 
 Example router in `server/routers/project.ts`:
 
-\`\`\`typescript
+```typescript
 export const projectRouter = router({
   getAll: protectedProcedure.query(async ({ ctx }) => {
     // Type-safe database query
@@ -192,7 +200,7 @@ export const projectRouter = router({
   }),
   // ... more procedures
 })
-\`\`\`
+```
 
 ## Customization
 
@@ -200,13 +208,13 @@ export const projectRouter = router({
 
 Edit `app/globals.css` to customize the color scheme:
 
-\`\`\`css
+```css
 :root {
   --quantum: 210 100% 59%;        /* Primary quantum color */
   --quantum-highlight: 210 100% 75%;
   /* ... more variables */
 }
-\`\`\`
+```
 
 ### Adding New Routes
 
@@ -285,3 +293,7 @@ MIT License - feel free to use this template for any project.
 ## Credits
 
 Built with modern web technologies and inspired by quantum computing aesthetics. Perfect for blockchain applications, SaaS products, or any modern web application.
+
+## Repository
+
+View the source code and contribute at: [https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind](https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind)

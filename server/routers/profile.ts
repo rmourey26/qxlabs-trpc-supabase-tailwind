@@ -1,6 +1,7 @@
 import { z } from "zod"
 import { router, protectedProcedure } from "../trpc"
 import { TRPCError } from "@trpc/server"
+import { isDemoMode } from "@/utils/demo-mode"
 
 const profileSchema = z.object({
   full_name: z.string().min(1, "Full name is required").max(100),
@@ -9,6 +10,18 @@ const profileSchema = z.object({
 
 export const profileRouter = router({
   get: protectedProcedure.query(async ({ ctx }) => {
+    // Return mock data in demo mode
+    if (isDemoMode()) {
+      console.log("[v0] Profile - Returning mock data in demo mode")
+      return {
+        id: ctx.user.id,
+        full_name: "Demo User",
+        avatar_url: "/avatar.png",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }
+    }
+
     try {
       const { data: profile, error } = await ctx.supabase.from("profiles").select("*").eq("id", ctx.user.id).single()
 
@@ -57,6 +70,18 @@ export const profileRouter = router({
   }),
 
   update: protectedProcedure.input(profileSchema).mutation(async ({ ctx, input }) => {
+    // Return mock updated data in demo mode
+    if (isDemoMode()) {
+      console.log("[v0] Profile - Returning mock update in demo mode")
+      return {
+        id: ctx.user.id,
+        full_name: input.full_name,
+        avatar_url: input.avatar_url || "/avatar.png",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }
+    }
+
     try {
       const { data: profile, error } = await ctx.supabase
         .from("profiles")

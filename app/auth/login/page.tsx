@@ -11,12 +11,15 @@ import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { toast } from "@/components/ui/use-toast"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Info } from "lucide-react"
 import Link from "next/link"
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (formData: FormData) => {
+    console.log("[v0] Login form submitted")
     setIsLoading(true)
 
     try {
@@ -39,19 +42,29 @@ export default function LoginPage() {
     } catch (error) {
       // The redirect from successful login will cause this catch block to run
       // We can ignore redirect errors as they're expected
-      console.log("Redirect occurred (this is expected for successful login)")
+      console.log("[v0] Redirect occurred (this is expected for successful login)")
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative">
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       <MatrixBackground density={0.02} />
-      <div className="w-full max-w-md z-10">
+      <div className="w-full max-w-md relative z-50 pointer-events-auto">
         <div className="flex justify-center mb-8">
           <QxLabsLogo size="lg" />
         </div>
+
+        <Alert className="border-quantum/50 bg-quantum/5 mb-4">
+          <Info className="h-4 w-4 text-quantum" />
+          <AlertDescription className="text-sm text-muted-foreground">
+            <strong className="text-quantum">Demo Mode:</strong> Test the application with email:{" "}
+            <code className="text-quantum">demo@example.com</code> and password:{" "}
+            <code className="text-quantum">demo123</code>
+          </AlertDescription>
+        </Alert>
+
         <QuantumCard glowEffect>
           <CardHeader>
             <CardTitle className="text-2xl text-center">
@@ -70,7 +83,9 @@ export default function LoginPage() {
                   placeholder="you@example.com"
                   required
                   disabled={isLoading}
-                  className="bg-background/50 border-quantum/30 focus:border-quantum"
+                  className="bg-background/50 border-quantum/30 focus:border-quantum relative z-10"
+                  onClick={() => console.log("[v0] Email input clicked")}
+                  onFocus={() => console.log("[v0] Email input focused")}
                 />
               </div>
               <div className="space-y-2">
@@ -87,10 +102,17 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   required
                   disabled={isLoading}
-                  className="bg-background/50 border-quantum/30 focus:border-quantum"
+                  className="bg-background/50 border-quantum/30 focus:border-quantum relative z-10"
+                  onClick={() => console.log("[v0] Password input clicked")}
+                  onFocus={() => console.log("[v0] Password input focused")}
                 />
               </div>
-              <QuantumButton type="submit" className="w-full" disabled={isLoading}>
+              <QuantumButton
+                type="submit"
+                className="w-full relative z-10"
+                disabled={isLoading}
+                onClick={() => console.log("[v0] Submit button clicked")}
+              >
                 {isLoading ? "Signing In..." : "Sign In"}
               </QuantumButton>
             </form>
