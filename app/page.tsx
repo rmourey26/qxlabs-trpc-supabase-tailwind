@@ -470,15 +470,52 @@ export default function HomePage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
+                <CardContent className="space-y-5">
+                  <p className="text-muted-foreground">
                     The template works in demo mode without configuration. For full functionality, add your Supabase
-                    credentials:
+                    credentials to a <code className="text-quantum bg-background/50 px-1.5 py-0.5 rounded">.env.local</code> file:
                   </p>
-                  <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm space-y-1">
-                    <code className="text-muted-foreground">NEXT_PUBLIC_SUPABASE_URL=your_supabase_url</code>
-                    <br />
-                    <code className="text-muted-foreground">NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key</code>
+
+                  {/* Required vars */}
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-quantum mb-2">Required</p>
+                    <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm space-y-1">
+                      <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_URL=your_supabase_url</code>
+                      <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key</code>
+                    </div>
+                  </div>
+
+                  {/* New publishable key */}
+                  <div className="border border-quantum/30 rounded-lg p-4 bg-quantum/5 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold uppercase tracking-widest text-quantum">New in Supabase</span>
+                      <span className="text-xs bg-quantum/20 text-quantum px-2 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Supabase now provides a <strong className="text-foreground">Publishable Key</strong> (format:{" "}
+                      <code className="text-quantum bg-background/50 px-1.5 py-0.5 rounded">sb_publishable_...</code>)
+                      as a safer replacement for the legacy <code className="text-quantum bg-background/50 px-1.5 py-0.5 rounded">anon</code> JWT key.
+                      It is safe to expose in client-side code and works alongside Row Level Security.
+                    </p>
+                    <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm">
+                      <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_URL=your_supabase_url</code>
+                      <code className="text-quantum block">NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...</code>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Find your publishable key in your Supabase project under{" "}
+                      <strong className="text-foreground">Settings → API Keys → Publishable key</strong>. Both the legacy{" "}
+                      <code className="text-quantum bg-background/50 px-1 py-0.5 rounded">anon</code> key and the new publishable key are supported
+                      during the transition period — you can migrate with zero downtime.
+                    </p>
+                    <Link
+                      href="https://supabase.com/docs/guides/api/api-keys"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-quantum hover:text-quantum/80 transition-colors mt-1"
+                    >
+                      Read the Supabase API Keys docs
+                      <Globe className="h-3 w-3" />
+                    </Link>
                   </div>
                 </CardContent>
               </QuantumCard>
