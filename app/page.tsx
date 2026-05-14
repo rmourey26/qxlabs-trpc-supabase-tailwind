@@ -49,6 +49,9 @@ export default function HomePage() {
             <Link href="#getting-started" className="text-foreground hover:text-quantum transition-colors">
               Get Started
             </Link>
+            <Link href="/portfolio" className="text-foreground hover:text-quantum transition-colors">
+              Portfolio
+            </Link>
           </nav>
           <div className="flex items-center gap-4">
             <Link href="/auth/login" className="text-foreground hover:text-quantum transition-colors">

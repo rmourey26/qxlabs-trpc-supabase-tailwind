@@ -55,11 +55,11 @@ export function Footer() {
 
           {/* Divider + copyright */}
           <div className="border-t border-quantum/10 w-full pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-xs text-muted-foreground">
+            <span className="text-xs text-muted-foreground flex items-center gap-1 flex-wrap justify-center md:justify-start">
               © {currentYear}{" "}
               <QuantumText className="text-xs">QxLabs Template</QuantumText>
               . Open source under the MIT License.
-            </p>
+            </span>
             <div className="flex gap-5">
               <Link
                 href="https://github.com/rmourey26/qxlabs-trpc-supabase-tailwind"
