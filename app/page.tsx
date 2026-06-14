@@ -20,6 +20,7 @@ import {
   Globe,
 } from "lucide-react"
 import { Footer } from "@/components/layout/footer"
+import { AboutSection } from "@/components/about-section"
 
 export default function HomePage() {
   return (
@@ -48,6 +49,9 @@ export default function HomePage() {
             </Link>
             <Link href="#getting-started" className="text-foreground hover:text-quantum transition-colors">
               Get Started
+            </Link>
+            <Link href="#about" className="text-foreground hover:text-quantum transition-colors">
+              About
             </Link>
           </nav>
           <div className="flex items-center gap-4">
@@ -593,6 +597,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* About Section */}
+        <AboutSection />
 
         {/* Footer */}
         <Footer />
