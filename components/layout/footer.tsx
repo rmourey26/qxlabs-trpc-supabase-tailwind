@@ -189,10 +189,10 @@ export function Footer() {
             © {currentYear} QxLabs. All rights reserved. Built for the Sui ecosystem.
           </p>
           <div className="flex flex-wrap gap-6">
-            <Link href="#" className="text-xs text-muted-foreground hover:text-quantum transition-colors">
+            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-quantum transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-xs text-muted-foreground hover:text-quantum transition-colors">
+            <Link href="/terms" className="text-xs text-muted-foreground hover:text-quantum transition-colors">
               Terms of Service
             </Link>
             <Link href="#" className="text-xs text-muted-foreground hover:text-quantum transition-colors">
