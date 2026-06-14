@@ -30,7 +30,7 @@ export default function WhitepaperPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <QuantumText>TACON-Sui Technical Paper</QuantumText>
+                <QuantumText>QxLabs Technical Paper</QuantumText>
               </h1>
               <p className="text-xl text-muted-foreground">
                 Optimizing Sui's Network Layer: A Topology-Aware and Cost-Optimized Approach for Consensus and Data
@@ -404,7 +404,7 @@ export default function WhitepaperPage() {
             <div className="text-center mb-8">
               <a
                 href="https://quantumone.b-cdn.net/tacon/Sui%20Network%20Topology%20Optimization.pdf"
-                download="TACON-Sui-Technical-Paper.pdf"
+                          download="QxLabs-Technical-Paper.pdf"
                 className="inline-block"
                 target="_blank"
                 rel="noopener noreferrer"

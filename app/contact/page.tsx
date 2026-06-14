@@ -47,7 +47,7 @@ export default function ContactPage() {
     setTimeout(() => {
       toast({
         title: "Message sent successfully",
-        description: "Our team will contact you within 24 hours to discuss TACON-Sui integration.",
+        description: "Our team will contact you within 24 hours to discuss QxLabs integration.",
       })
       setIsSubmitting(false)
       setFormData({
@@ -82,7 +82,7 @@ export default function ContactPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <QuantumText>Partner with TACON-Sui</QuantumText>
+                <QuantumText>Partner with QxLabs</QuantumText>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Join the next evolution of Sui blockchain networking. Connect with our team to explore integration
@@ -94,7 +94,7 @@ export default function ContactPage() {
               <QuantumCard>
                 <CardHeader>
                   <CardTitle>Get in Touch</CardTitle>
-                  <CardDescription>Connect with the TACON-Sui development team</CardDescription>
+                  <CardDescription>Connect with the QxLabs development team</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -181,7 +181,7 @@ export default function ContactPage() {
               <QuantumCard>
                 <CardHeader>
                   <CardTitle>Partnership Inquiry</CardTitle>
-                  <CardDescription>Tell us about your interest in TACON-Sui</CardDescription>
+                  <CardDescription>Tell us about your interest in QxLabs</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -247,7 +247,7 @@ export default function ContactPage() {
                       <Label htmlFor="interest">Primary Interest</Label>
                       <Select value={formData.interest} onValueChange={handleSelectChange("interest")}>
                         <SelectTrigger>
-                          <SelectValue placeholder="What interests you most about TACON-Sui?" />
+                          <SelectValue placeholder="What interests you most about QxLabs?" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="validator_optimization">Validator Node Optimization</SelectItem>
@@ -265,7 +265,7 @@ export default function ContactPage() {
                       <Textarea
                         id="message"
                         name="message"
-                        placeholder="Tell us about your use case, technical requirements, or how you'd like to collaborate with TACON-Sui..."
+                        placeholder="Tell us about your use case, technical requirements, or how you'd like to collaborate with QxLabs..."
                         required
                         rows={4}
                         value={formData.message}

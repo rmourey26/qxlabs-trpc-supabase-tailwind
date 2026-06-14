@@ -28,7 +28,7 @@ export const mockUser = {
 export const mockProjects = [
   {
     id: "1",
-    name: "TACON-Sui Network",
+    name: "QxLabs Network",
     description: "Topology-aware consensus optimization for Sui blockchain",
     status: "active" as const,
     user_id: mockUser.id,

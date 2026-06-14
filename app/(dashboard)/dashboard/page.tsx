@@ -14,7 +14,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">
-          Welcome to <QuantumText>TACON-Sui</QuantumText>, {profile?.full_name || "Developer"}
+          Welcome to <QuantumText>QxLabs</QuantumText>, {profile?.full_name || "Developer"}
         </h1>
         <p className="text-muted-foreground">Monitor your Sui network optimization and performance metrics</p>
       </div>
@@ -69,7 +69,7 @@ export default function DashboardPage() {
         <QuantumCard className="lg:col-span-4" dataStream>
           <CardHeader>
             <CardTitle>Network Performance</CardTitle>
-            <CardDescription>Real-time TACON-Sui optimization metrics</CardDescription>
+            <CardDescription>Real-time QxLabs optimization metrics</CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
             <div className="h-[200px] flex items-center justify-center border border-dashed border-quantum/30 rounded-md">
@@ -85,7 +85,7 @@ export default function DashboardPage() {
         <QuantumCard className="lg:col-span-3">
           <CardHeader>
             <CardTitle>Active Components</CardTitle>
-            <CardDescription>TACON-Sui system status</CardDescription>
+            <CardDescription>QxLabs system status</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
