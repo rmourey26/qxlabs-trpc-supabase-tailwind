@@ -97,16 +97,45 @@ To enable full functionality with real authentication and database:
 
 #### B. Configure Environment Variables
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the root directory.
+
+Supabase now uses **publishable** and **secret** keys (replacing the legacy `anon` / `service_role` JWT keys). Find them under **Settings > API Keys** in your Supabase dashboard. Legacy keys continue to work until end of 2026, but new projects should use the new format.
+
+**New API Keys (recommended):**
 
 ```env
-# Supabase Configuration
+# Supabase Configuration — new key format (recommended)
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Publishable key (safe for client/browser — replaces anon key)
+# Format: sb_publishable_...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...
+
+# Secret key (server-side only, bypasses RLS — replaces service_role key)
+# Format: sb_secret_...  — NEVER expose in client code or source control
+SUPABASE_SECRET_KEY=sb_secret_...
 
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
+
+**Legacy Keys (deprecated — end of 2026):**
+
+```env
+# Supabase Configuration — legacy JWT key format
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+> **Key differences:**
+> - `sb_publishable_...` — replaces `anon`. Safe to expose in browser/client code. Respects Row Level Security.
+> - `sb_secret_...` — replaces `service_role`. **Server-side only.** Bypasses RLS. Never commit to source control.
+> - New keys are **not JWTs** — send on the `apikey` header, not `Authorization: Bearer`.
+> - See the [Supabase migration guide](https://supabase.com/docs/guides/getting-started/migrating-to-new-api-keys) for full details.
 
 For production deployment, update `NEXT_PUBLIC_SITE_URL` to your actual domain.
 
@@ -250,16 +279,22 @@ This template works on any platform that supports Next.js:
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes* | Your Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes* | Your Supabase anonymous key |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes* | Publishable key (`sb_publishable_...`) for client-side use — or legacy `anon` JWT key |
+| `SUPABASE_SECRET_KEY` | Server only | Secret key (`sb_secret_...`) for server-side admin operations — bypasses RLS |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server only | Legacy `service_role` JWT — deprecated, use `SUPABASE_SECRET_KEY` instead |
 | `NEXT_PUBLIC_SITE_URL` | Yes* | Your site URL (for auth redirects) |
 
 *Required for production. Optional for demo mode.
+
+> New Supabase projects should use `sb_publishable_...` and `sb_secret_...` keys. Legacy `anon` and `service_role` JWT keys are deprecated and will stop working at end of 2026. See [Understanding API keys](https://supabase.com/docs/guides/getting-started/api-keys).
 
 ## Troubleshooting
 
 ### "Invalid API key" error
 - Verify your Supabase credentials in `.env.local`
-- Ensure you're using the anon key, not the service role key
+- For new keys: use `sb_publishable_...` for `NEXT_PUBLIC_SUPABASE_ANON_KEY` (client) and `sb_secret_...` for `SUPABASE_SECRET_KEY` (server)
+- For legacy keys: use the `anon` key for client-side and `service_role` for server-side — never swap them
+- New keys are not JWTs — they must be sent on the `apikey` header, not `Authorization: Bearer`
 
 ### Authentication not working
 - Check that `NEXT_PUBLIC_SITE_URL` matches your current URL

@@ -174,7 +174,7 @@ export default function AnalyticsPage() {
           <CardContent>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm">TACON-Sui Enhancement</span>
+                <span className="text-sm">QxLabs Enhancement</span>
                 <span className="text-quantum text-sm font-medium">+45%</span>
               </div>
               <div className="flex justify-between">

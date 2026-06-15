@@ -20,7 +20,7 @@ export function Footer() {
             <div className="flex flex-col items-start">
               <QxLabsLogo size="md" variant="horizontal" animated={false} />
               <p className="mt-4 text-sm text-muted-foreground">
-                TACON-Sui: Revolutionizing Sui blockchain networking with topology-aware consensus and intelligent
+                QxLabs: Revolutionizing Sui blockchain networking with topology-aware consensus and intelligent
                 routing for unprecedented performance and resilience.
               </p>
             </div>
@@ -130,7 +130,7 @@ export function Footer() {
                 </button>
               </div>
               <p className="text-xs text-muted-foreground">
-                Get updates on TACON-Sui development, research publications, and early access opportunities.
+                Get updates on QxLabs development, research publications, and early access opportunities.
               </p>
             </form>
           </div>

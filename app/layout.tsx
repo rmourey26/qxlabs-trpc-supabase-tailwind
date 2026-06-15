@@ -22,10 +22,49 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "QxLabs Template | Next.js + tRPC + Supabase + Tailwind",
+  title: "QxLabs Template | Built by The Blockchain Company.io LLC",
   description:
-    "A modern, production-ready Next.js template featuring tRPC, Supabase, and a custom quantum-inspired design system. Perfect for building high-performance applications with beautiful UI.",
-    generator: 'v0.app'
+    "A production-ready Next.js template engineered by Robert Mourey Jr. at The Blockchain Company.io LLC — featuring tRPC, Supabase, and a quantum-inspired design system. Built for teams who demand type-safety, security, and a modern developer experience. Custom software engineering and architectural services available at kronova.io.",
+  keywords: [
+    "QxLabs",
+    "Next.js template",
+    "tRPC",
+    "Supabase",
+    "Tailwind CSS",
+    "The Blockchain Company",
+    "Robert Mourey Jr.",
+    "custom software engineering",
+    "blockchain architecture",
+    "post-quantum cryptography",
+    "AetherNet",
+    "Kronova",
+    "full-stack development",
+    "enterprise integrations",
+  ],
+  authors: [
+    {
+      name: "Robert Mourey Jr. — The Blockchain Company.io LLC",
+      url: "https://kronova.io",
+    },
+  ],
+  creator: "The Blockchain Company.io LLC",
+  metadataBase: new URL("https://qxlabs.theblockchain.company"),
+  openGraph: {
+    title: "QxLabs Template | Built by The Blockchain Company.io LLC",
+    description:
+      "Production-ready Next.js + tRPC + Supabase template engineered by The Blockchain Company.io LLC. Custom software engineering and architectural services available at kronova.io.",
+    type: "website",
+    url: "https://qxlabs.theblockchain.company",
+    siteName: "QxLabs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QxLabs Template | Built by The Blockchain Company.io LLC",
+    description:
+      "Production-ready Next.js + tRPC + Supabase template engineered by The Blockchain Company.io LLC. Custom software engineering and architectural services at kronova.io.",
+    creator: "@theblockchainco",
+  },
+  generator: "v0.app",
 }
 
 export default function RootLayout({

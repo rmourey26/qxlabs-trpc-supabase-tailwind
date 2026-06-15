@@ -477,12 +477,21 @@ export default function HomePage() {
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
                     The template works in demo mode without configuration. For full functionality, add your Supabase
-                    credentials:
+                    credentials. Supabase now uses <strong>publishable</strong> and <strong>secret</strong> keys —
+                    find them under <code className="text-quantum bg-background/50 px-1 rounded">Settings &gt; API Keys</code> in
+                    your Supabase dashboard.
                   </p>
-                  <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm space-y-1">
-                    <code className="text-muted-foreground">NEXT_PUBLIC_SUPABASE_URL=your_supabase_url</code>
-                    <br />
-                    <code className="text-muted-foreground">NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key</code>
+                  <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm space-y-2 mb-4">
+                    <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2 font-sans">New API Keys (recommended)</p>
+                    <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url</code>
+                    <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...</code>
+                    <code className="text-muted-foreground block">SUPABASE_SECRET_KEY=sb_secret_...</code>
+                  </div>
+                  <div className="bg-background/50 border border-quantum/20 rounded-lg p-4 font-mono text-sm space-y-2">
+                    <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2 font-sans">Legacy Keys (deprecated end of 2026)</p>
+                    <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url</code>
+                    <code className="text-muted-foreground block">NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key</code>
+                    <code className="text-muted-foreground block">SUPABASE_SERVICE_ROLE_KEY=your_service_role_key</code>
                   </div>
                 </CardContent>
               </QuantumCard>
